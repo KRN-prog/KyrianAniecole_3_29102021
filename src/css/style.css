@@ -1,0 +1,229 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  box-shadow: 0px -10px 20px 0px #000000;
+}
+.header__heading {
+  width: 50%;
+  margin: 10px 0;
+}
+
+.nav {
+  padding: 15px 0;
+  background-color: #e6e6e6;
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.quote {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  background-color: #f2f2f2;
+}
+.quote__h1 {
+  margin: 35px auto 15px auto;
+  text-align: center;
+  flex-basis: 65%;
+}
+.quote__p {
+  flex-basis: 65%;
+  margin: 0 auto 25px auto;
+  text-align: center;
+  font-weight: 250;
+}
+.quote__button {
+  position: relative;
+  margin: 0 auto 25px auto;
+  padding: 15px;
+  cursor: pointer;
+  background: linear-gradient(180deg, #FF79DA 0%, #9356DC 100%);
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 6px 13px -10px #000000;
+  color: #fff;
+  z-index: 1;
+}
+.quote__button:hover::after {
+  opacity: 1;
+}
+.quote__button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(180deg, #ff93e1 0%, #a16be0 100%);
+  box-shadow: 5px 6px 13px -10px #000000;
+  transition: all 0.3s ease-in-out;
+}
+
+.fonctionnement {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 90%;
+  margin: auto;
+}
+.fonctionnement__h2 {
+  margin-bottom: 0;
+}
+.fonctionnement-block {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 90%;
+  margin: 25px auto 0 auto;
+  background-color: #f2f2f2;
+  padding: 20px 0;
+  border: none;
+  border-radius: 15px;
+  position: relative;
+  box-shadow: 0px 3px 13px -10px #000000;
+}
+.fonctionnement-block__number {
+  display: inline-block;
+  position: relative;
+  width: 25px;
+  height: 25px;
+  margin-left: -10px;
+  background-color: #9356DC;
+  text-align: center;
+  border-radius: 25px;
+  color: #fff;
+}
+.fonctionnement-block__number > span {
+  position: absolute;
+  top: 3px;
+  right: 0;
+  left: 0;
+}
+.fonctionnement-block__icon-texte {
+  display: flex;
+  margin: 5px 0 0 15px;
+}
+.fonctionnement-block__icon-texte > h4 {
+  margin: 0 0 0 15px;
+}
+.fonctionnement-block--final {
+  background-color: #f2eafb;
+  margin-bottom: 50px;
+}
+.fonctionnement-block__logo--final {
+  color: #9356DC;
+}
+
+.restaurants {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-basis: 100%;
+  background-color: #f2f2f2;
+}
+.restaurants__h2 {
+  flex-basis: 90%;
+  margin-top: 50px;
+}
+.restaurants .prev-restaurant {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 90%;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 3px 13px -10px #000000;
+}
+.restaurants .prev-restaurant__redirect {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  color: #000;
+  text-decoration: none;
+}
+.restaurants .prev-restaurant__redirect:hover, .restaurants .prev-restaurant__redirect:active {
+  color: #000;
+  text-decoration: none;
+}
+.restaurants .prev-restaurant--final {
+  margin-bottom: 50px;
+}
+.restaurants .restaurant-image {
+  flex-basis: 100%;
+  position: relative;
+}
+.restaurants .restaurant-image__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: 0 60%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.restaurants .restaurant-image__new {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  color: #217460;
+  background: #71d7be;
+  border-radius: 2px;
+}
+.restaurants .info-restaurant {
+  flex-basis: 85%;
+}
+.restaurants .info-restaurant__heading {
+  margin-bottom: 5px;
+  margin-left: 15px;
+}
+.restaurants .info-restaurant__byline {
+  display: inline-block;
+  margin-bottom: 15px;
+  margin-left: 15px;
+}
+.restaurants .info-restaurant__heart {
+  position: relative;
+  flex-basis: 15%;
+}
+.restaurants .info-restaurant--icon {
+  position: absolute;
+  top: 25%;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #333333;
+  color: #fff;
+}
+.footer__brand {
+  flex-basis: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Shrikhand", cursive;
+  font-weight: normal;
+}
+.footer__block {
+  flex-basis: 90%;
+  margin: 0 auto 10px auto;
+}
+.footer__block:last-of-type {
+  margin-bottom: 25px;
+}
+.footer--icon {
+  margin-right: 5px;
+}
+
+/*# sourceMappingURL=style.css.map */
