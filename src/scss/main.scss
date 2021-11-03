@@ -1,32 +1,64 @@
-$primary-color: #9356DC;
-$secondary-color: #FF79DA;
-$tertiary-color: #99E2D0;
-$white: #fff;
-$black: #000;
-
-@mixin Roboto{
-    font-family: 'Roboto', sans-serif;
-}
-@mixin Shrikhand{
-    font-family: 'Shrikhand', cursive;
-}
-@mixin flex-row-declaration{
-    display: flex;
-    flex-wrap: wrap;
-}
+@import "./utils/variables";
+@import "./utils/mixins";
+@import "./utils/keyframes";
 body{
     margin: 0;
     padding: 0;
     @include Roboto;
+}
+.loader--box{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 999;
+    background-color: $white;
+    animation: fade-out 1s ease-in-out;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+  }
+.loader{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: fade-out 1s ease-in-out;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    @for $i from 1 through 6{
+        &__line-#{$i}{
+        position: absolute;
+        width: 15px;
+        height: 50px;
+        background: $tertiary-color;
+        left: 10% + $i * 10;
+        right: 0;
+        top: 50%;
+        animation: rotate .5s infinite ease-in-out;
+        animation-direction: alternate;
+        animation-delay: 100ms * $i;
+        }
+    }
 }
 .header{
     position: relative;
     z-index: 1;
     text-align: center;
     box-shadow: 0px -10px 20px 0px #000000;
+    &__icon{
+        position: absolute;
+        top: 35%;
+        left: 10%;
+    }
     &__heading{
         width: 50%;
         margin: 10px 0;
+        @include tablette-resize{
+            width: 25%;
+        }
+        @include desktop-resize{
+            width: 20%;
+        }
     }
 }
 .nav{
@@ -51,6 +83,11 @@ body{
         margin: 0 auto 25px auto;
         text-align: center;
         font-weight: 250;
+    }
+    &--button-container{
+        display: flex;
+        justify-content: center;
+        flex-basis: 100%;
     }
     &__button{
         position: relative;
@@ -136,6 +173,12 @@ body{
             color: $primary-color;
         }
     }
+    @include tablette-resize{
+        flex-basis: 70%;
+    }
+    @include desktop-resize{
+        flex-basis: 51%;
+    }
 }
 .restaurants{
     @include flex-row-declaration;
@@ -145,70 +188,282 @@ body{
     &__h2{
         flex-basis: 90%;
         margin-top: 50px;
+        @include tablette-resize{
+            flex-basis: 70%;
+        }
+        @include desktop-resize{
+            flex-basis: 51%;
+        }
     }
-    .prev-restaurant{
+}
+.prev-restaurant{
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 90%;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 3px 13px -10px #000000;
+    &__redirect{
         display: flex;
         flex-wrap: wrap;
-        flex-basis: 90%;
-        margin-bottom: 25px;
-        border-radius: 15px;
-        box-shadow: 0px 3px 13px -10px #000000;
-        &__redirect{
-            display: flex;
-            flex-wrap: wrap;
+        flex-basis: 100%;
+    }
+    &--final{
+        margin-bottom: 50px;
+    }
+    @include tablette-resize{
+        flex-basis: 70%;
+    }
+    @include desktop-resize{
+        flex-basis: 51%;
+        flex-wrap: unset;
+        position: relative;
+    }
+}
+.restaurant-image{
+    flex-basis: 100%;
+    position: relative;
+    &__image{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        object-position: 0 60%;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        @include desktop-resize{
+            border-radius: 15px;
+            margin: 3px 0 0 3px;    
+        }
+    }
+    &__new{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        color: darken($tertiary-color, 45%);
+        background: darken($tertiary-color, 10%);
+        border-radius: 2px;
+    }
+}
+.info-restaurant{
+    flex-basis: 85%;
+    &__heading{
+        margin-bottom: 5px;
+        margin-left: 15px;
+    }
+    &__byline{
+        display: inline-block;
+        margin-bottom: 15px;
+        margin-left: 15px;
+    }
+    &__heart{
+        position: relative;
+        flex-basis: 15%;
+        @include desktop-resize{
+            position: absolute;
+            right: 50px;
+            bottom: 35px;
+        }
+    }
+    &--container{
+        @include desktop-resize{
+            position: absolute;
+            bottom: 0;
+        }
+    }
+    &--icon{
+        position: absolute;
+        top: 35%;
+    }
+}
+.preview-image-menu{
+    flex-basis: 100%;
+    z-index: 1;
+    &__image{
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+}
+.restaurant--container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    margin-top: -50px;
+    background-color: $white;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    z-index: 2;
+}
+.restaurant{
+    flex-basis: 90%;
+    margin: auto;
+    &-head{
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        @include Shrikhand;
+        &__nom{
             flex-basis: 100%;
-            color: $black;
-            text-decoration: none;
-            &:hover,&:active{
-                color: $black;
-                text-decoration: none;
+            margin-top: 40px;
+        }
+        &__like{
+            position: absolute;
+            right: 30px;
+            top: 40px;
+            &:hover{
+                cursor: pointer;
             }
         }
-        &--final{
-            margin-bottom: 50px;
+    }
+}
+.menu-etape{
+    flex-basis: 90%;
+    margin: auto;
+    @include tablette-resize{
+        flex-basis: 70%;
+    }
+    @include desktop-resize{
+        flex-basis: 51%;
+    }
+}
+.menu-parti{
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    &__texte{
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+    &__bar{
+        background: $tertiary-color;
+        padding: 2px;
+        width: 10%;
+    }
+}
+.plat{
+    display: flex;
+    position: relative;
+    margin-bottom: 15px;
+    animation: menu-animations .5s ease-in-out;
+    @for $i from 3 through 10 {
+        &:nth-child(#{$i}){
+            animation-delay: 100ms * $i;
         }
     }
-    .restaurant-image{
-        flex-basis: 100%;
-        position: relative;
-        &__image{
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            object-position: 0 60%;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-        }
-        &__new{
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 5px 10px;
-            color: darken($tertiary-color, 45%);
-            background: darken($tertiary-color, 10%);
-            border-radius: 2px;
-        }
-    }
-    .info-restaurant{
+    animation-fill-mode: forwards;
+    overflow: hidden;
+    opacity: 0;
+    box-shadow: 0px 1px 15px -9px #000;
+    border-radius: 10px;
+    white-space: nowrap;
+    cursor: pointer;
+    &--info{
+        display: flex;
+        flex-wrap: wrap;
         flex-basis: 85%;
-        &__heading{
-            margin-bottom: 5px;
-            margin-left: 15px;
-        }
-        &__byline{
-            display: inline-block;
-            margin-bottom: 15px;
-            margin-left: 15px;
-        }
-        &__heart{
-            position: relative;
-            flex-basis: 15%;
-        }
-        &--icon{
-            position: absolute;
-            top: 25%;
+        padding: 10px 0 10px 0;
+        overflow: hidden;
+        transition: all .3s ease-out;
+    }
+    &--type-recette-box{
+        width: 100%;
+        margin-left: 10px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    &--info-prix{
+        flex-basis: 15%;
+        position: relative;
+    }
+    &--info-check{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 15%;
+        position: absolute;
+        right: 0%;
+        top: 0;
+        bottom: 0;
+        background: $tertiary-color;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        cursor: pointer;
+        transform: translateX(150px);
+        transition: all .3s ease-out;
+    }
+    &--last{
+        margin-bottom: 35px;
+    }
+
+    &__nom{
+        width: 100%;
+        margin: 0 0px 5px 10px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    &__type-recette{
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &__prix{
+        position: absolute;
+        top: 50%;
+        left: 25%;
+    }
+    &__circle{
+        display: inline-block;
+        text-align: center;
+        height: 25px;
+        width: 25px;
+        background: $white;
+        border-radius: 50px;
+        >i{
+            margin-top: 5px;
+            color: $tertiary-color;
         }
     }
+
+    &:active{
+        .plat--info{
+            flex-basis: 70%;
+        }
+        .plat--info-check{
+            transform: translateX(0);
+        }
+        .plat__circle > i{
+            animation: check-meal-animations .2s ease-in-out;
+            animation-delay: 250ms;
+            animation-fill-mode: forwards;
+        }
+    }
+}
+.a--redirect{
+    @include a--redirect;
+}
+.icon--heart{
+    color: $white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $black;
+    cursor: pointer;
+    &:active{
+        &::before{
+            content: "\f004";
+            color: #9c47fc;
+            background: linear-gradient(#9c47fc, #356ad2);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke-width: 0;
+            -webkit-text-stroke-color: $black;
+            
+        }
+    }
+}
+.button--order-menu{
+    width: 35%;
+    text-align: center;
+    margin: 0 auto 35px auto;
 }
 .footer{
     @include flex-row-declaration;
@@ -220,12 +475,24 @@ body{
         margin-right: auto;
         @include Shrikhand;
         font-weight: normal;
+        @include tablette-resize{
+            flex-basis: 70%;
+        }
+        @include desktop-resize{
+            flex-basis: 51%;
+        }
     }
     &__block{
         flex-basis: 90%;
         margin: 0 auto 10px auto;
         &:last-of-type{
             margin-bottom: 25px;
+        }
+        @include tablette-resize{
+            flex-basis: 70%;
+        }
+        @include desktop-resize{
+            flex-basis: 51%;
         }
     }
     &--icon{

@@ -1,0 +1,36 @@
+@keyframes menu-animations{
+    from{
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes check-meal-animations{
+    from{
+        transform: rotate(-180deg);
+    }
+    to{
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes rotate{
+    from{
+      height: 50px;
+    }
+    to{
+      height: 10px;
+    }
+}
+@keyframes fade-out{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        z-index: 0;
+    }
+}

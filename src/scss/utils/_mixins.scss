@@ -1,0 +1,28 @@
+@mixin Roboto{
+    font-family: 'Roboto', sans-serif;
+}
+@mixin Shrikhand{
+    font-family: 'Shrikhand', cursive;
+}
+@mixin flex-row-declaration{
+    display: flex;
+    flex-wrap: wrap;
+}
+@mixin a--redirect {
+    color: $black;
+    text-decoration: none;
+    &:hover,&:active{
+        color: $black;
+        text-decoration: none;
+    }
+}
+@mixin tablette-resize{
+    @media screen and (min-width: map-get($breakpoints , tablet)) and (max-width: map-get($breakpoints , desktop)){
+        @content;
+    }
+}
+@mixin desktop-resize{
+    @media screen and (min-width: map-get($breakpoints , desktop)){
+        @content;
+    }
+}
