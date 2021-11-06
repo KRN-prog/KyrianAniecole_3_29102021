@@ -1,0 +1,163 @@
+.preview-image-menu{
+    flex-basis: 100%;
+    z-index: 1;
+    &__image{
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+}
+.restaurant--container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    margin-top: -50px;
+    background-color: $white;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    z-index: 2;
+}
+.restaurant{
+    flex-basis: 90%;
+    margin: auto;
+    &-head{
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        @include Shrikhand;
+        &__nom{
+            flex-basis: 85%;
+            margin-top: 40px;
+        }
+        &__like{
+            position: absolute;
+            right: 30px;
+            top: 40px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
+.menu-etape{
+    flex-basis: 90%;
+    margin: auto;
+    @include tablette-resize{
+        flex-basis: 70%;
+    }
+    @include desktop-resize{
+        flex-basis: 51%;
+    }
+}
+.menu-parti{
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    &__texte{
+        display: inline-block;
+        margin-bottom: 5px;
+    }
+    &__bar{
+        background: $tertiary-color;
+        padding: 2px;
+        width: 10%;
+    }
+}
+.plat{
+    display: flex;
+    position: relative;
+    margin-bottom: 15px;
+    animation: menu-animations .5s ease-in-out;
+    @for $i from 3 through 10 {
+        &:nth-child(#{$i}){
+            animation-delay: 100ms * $i;
+        }
+    }
+    animation-fill-mode: forwards;
+    overflow: hidden;
+    opacity: 0;
+    box-shadow: 0px 1px 15px -9px #000;
+    border-radius: 10px;
+    white-space: nowrap;
+    cursor: pointer;
+    &--info{
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: 85%;
+        padding: 10px 0 10px 0;
+        overflow: hidden;
+        transition: all .3s ease-out;
+    }
+    &--type-recette-box{
+        width: 100%;
+        margin-left: 10px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    &--info-prix{
+        flex-basis: 15%;
+        position: relative;
+    }
+    &--info-check{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 15%;
+        position: absolute;
+        right: 0%;
+        top: 0;
+        bottom: 0;
+        background: $tertiary-color;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        cursor: pointer;
+        transform: translateX(150px);
+        transition: all .3s ease-out;
+    }
+    &--last{
+        margin-bottom: 35px;
+    }
+
+    &__nom{
+        width: 100%;
+        margin: 0 0px 5px 10px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    &__type-recette{
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &__prix{
+        position: absolute;
+        top: 50%;
+        left: 25%;
+    }
+    &__circle{
+        display: inline-block;
+        text-align: center;
+        height: 25px;
+        width: 25px;
+        background: $white;
+        border-radius: 50px;
+        >i{
+            margin-top: 5px;
+            color: $tertiary-color;
+        }
+    }
+
+    &:hover{
+        & .plat--info{
+            flex-basis: 70%;
+        }
+        & .plat--info-check{
+            transform: translateX(0);
+        }
+        & .plat__circle > i{
+            animation: check-meal-animations .2s ease-in-out;
+            animation-delay: 250ms;
+            animation-fill-mode: forwards;
+        }
+    }
+}

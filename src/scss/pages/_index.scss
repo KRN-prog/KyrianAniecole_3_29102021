@@ -1,0 +1,248 @@
+.loader--box{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 999;
+    background-color: $white;
+    opacity: 1;
+    animation: fade-out 1s ease-in-out;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
+.loader{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: fade-out 1s ease-in-out;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    @for $i from 1 through 6{
+        &__line-#{$i}{
+            position: absolute;
+            width: 15px;
+            height: 50px;
+            background: $tertiary-color;
+            left: 10% + $i * 10;
+            right: 0;
+            top: 50%;
+            animation: rotate .5s infinite ease-in-out;
+            animation-direction: alternate;
+            animation-delay: 100ms * $i;
+        }
+    }
+}
+.nav{
+    padding: 15px 0;
+    background-color: darken($white, 10%);
+    text-align: center;
+}
+.main{
+    @include flex-row-declaration;
+}
+.quote{
+    @include flex-row-declaration;
+    flex-basis: 100%;
+    background-color: darken($white, 5%);
+    &__h1{
+        margin: 35px auto 15px auto;
+        text-align: center;
+        flex-basis: 65%;
+    }
+    &__p{
+        flex-basis: 65%;
+        margin: 0 auto 25px auto;
+        text-align: center;
+        font-weight: 250;
+    }
+    &--button-container{
+        display: flex;
+        justify-content: center;
+        flex-basis: 100%;
+    }
+}
+.fonctionnement{
+    @include flex-row-declaration;
+    flex-basis: 90%;
+    margin: auto;
+    &__h2{
+        margin-bottom: 0;
+    }
+    &-block{
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: 90%;
+        margin: 25px auto 0 auto;
+        background-color: darken($white, 5%);
+        padding: 20px 0;
+        border: none;
+        border-radius: 15px;
+        position: relative;
+        box-shadow: 0px 3px 13px -10px #000000;
+        &__number{
+            display: inline-block;
+            position: relative;
+            width: 25px;
+            height: 25px;
+            margin-left: -10px;
+            background-color: $primary-color;
+            text-align: center;
+            border-radius: 25px;
+            color: $white;
+            >span{
+                position: absolute;
+                top: 3px;
+                right: 0;
+                left: 0;
+            }
+        }
+        &__icon-texte{
+            display: flex;
+            margin: 5px 0 0 15px;
+            >h4{
+                margin: 0 0 0 15px;
+            }
+        }
+
+        &--final{
+            background-color: lighten($primary-color, 35%);
+            margin-bottom: 50px;
+        }
+        &__logo--final{
+            color: $primary-color;
+        }
+    }
+    @include tablette-resize{
+        flex-basis: 70%;
+    }
+    @include desktop-resize{
+        flex-basis: 51%;
+    }
+}
+.restaurants{
+    @include flex-row-declaration;
+    justify-content: center;
+    flex-basis: 100%;
+    background-color: darken($white, 5%);
+    &__h2{
+        flex-basis: 90%;
+        margin-top: 50px;
+        @include tablette-resize{
+            flex-basis: 70%;
+        }
+        @include desktop-resize{
+            flex-basis: 51%;
+        }
+    }
+}
+.prev-restaurant{
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 90%;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 3px 13px -10px #000000;
+    &__redirect{
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: 100%;
+    }
+    &--final{
+        margin-bottom: 50px;
+    }
+    @include tablette-resize{
+        flex-basis: 70%;
+    }
+    @include desktop-resize{
+        flex-basis: 51%;
+        flex-wrap: unset;
+        position: relative;
+    }
+}
+.restaurant-image{
+    flex-basis: 100%;
+    position: relative;
+    &__image{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        object-position: 0 60%;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        @include desktop-resize{
+            border-radius: 15px;
+            margin: 3px 0 0 3px;    
+        }
+    }
+    &__new{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        color: darken($tertiary-color, 45%);
+        background: darken($tertiary-color, 10%);
+        border-radius: 2px;
+    }
+}
+.info-restaurant{
+    flex-basis: 85%;
+    &__heading{
+        margin-bottom: 5px;
+        margin-left: 15px;
+    }
+    &__byline{
+        display: inline-block;
+        margin-bottom: 15px;
+        margin-left: 15px;
+    }
+    &__heart{
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        flex-basis: 10%;
+        @include desktop-resize{
+            flex-basis: 15%;    
+        }
+        &--1{
+            color: $black;
+            position: absolute;
+            bottom: 25px;
+            font-size: 25px;
+        }
+        &--container{
+            max-height: 0;
+            transition: max-height 2s linear;
+            overflow: hidden;
+            position: absolute;
+            bottom: 25px;
+            left: 0;
+            z-index: 2;
+        }
+        &--2{
+            position: relative;
+            transform: translateY(-100%);
+            transition: transform 2s linear;
+            background: -webkit-linear-gradient($primary-color, $secondary-color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 25px;
+        }
+        &:hover &--container{
+            max-height: 25px;
+        }
+        &:hover &--2{
+            transform: translateY(0);
+        }
+    }
+    &--container{
+        @include desktop-resize{
+            position: absolute;
+            bottom: 0;
+        }
+    }
+    &--icon{
+        position: absolute;
+        top: 35%;
+    }
+}
