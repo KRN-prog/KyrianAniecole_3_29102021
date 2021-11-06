@@ -1,0 +1,21 @@
+.header{
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    box-shadow: 0px -10px 20px 0px #000000;
+    &__icon{
+        position: absolute;
+        top: 35%;
+        left: 10%;
+    }
+    &__heading{
+        width: 50%;
+        margin: 10px 0;
+        @include tablette-resize{
+            width: 25%;
+        }
+        @include desktop-resize{
+            width: 20%;
+        }
+    }
+}

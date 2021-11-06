@@ -1,0 +1,34 @@
+.footer{
+    @include flex-row-declaration;
+    background-color: lighten($black, 20%);
+    color: $white;
+    &__brand{
+        flex-basis: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        @include Shrikhand;
+        font-weight: normal;
+        @include tablette-resize{
+            flex-basis: 70%;
+        }
+        @include desktop-resize{
+            flex-basis: 51%;
+        }
+    }
+    &__block{
+        flex-basis: 90%;
+        margin: 0 auto 10px auto;
+        &:last-of-type{
+            margin-bottom: 25px;
+        }
+        @include tablette-resize{
+            flex-basis: 70%;
+        }
+        @include desktop-resize{
+            flex-basis: 51%;
+        }
+    }
+    &--icon{
+        margin-right: 5px;
+    }
+}
