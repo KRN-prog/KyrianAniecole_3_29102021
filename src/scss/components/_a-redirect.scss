@@ -1,3 +1,9 @@
 .a--redirect{
     @include a--redirect;
 }
+.white{
+    color: $white;
+    &:hover{
+        color: $white;
+    }
+}

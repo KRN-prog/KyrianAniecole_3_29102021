@@ -31,7 +31,7 @@
   }
   to {
     opacity: 0;
-    z-index: 0;
+    z-index: -5;
   }
 }
 /* ===== Vendors ===== */
@@ -87,6 +87,13 @@ body {
 .a--redirect:hover, .a--redirect:active {
   color: #000;
   text-decoration: none;
+}
+
+.white {
+  color: #fff;
+}
+.white:hover {
+  color: #fff;
 }
 
 /* ===== Layouts ===== */
@@ -187,7 +194,7 @@ body {
   position: absolute;
   width: 15px;
   height: 50px;
-  background: #99E2D0;
+  background: #9356DC;
   left: 20%;
   right: 0;
   top: 50%;
@@ -199,7 +206,7 @@ body {
   position: absolute;
   width: 15px;
   height: 50px;
-  background: #99E2D0;
+  background: #9356DC;
   left: 30%;
   right: 0;
   top: 50%;
@@ -211,7 +218,7 @@ body {
   position: absolute;
   width: 15px;
   height: 50px;
-  background: #99E2D0;
+  background: #9356DC;
   left: 40%;
   right: 0;
   top: 50%;
@@ -223,7 +230,7 @@ body {
   position: absolute;
   width: 15px;
   height: 50px;
-  background: #99E2D0;
+  background: #9356DC;
   left: 50%;
   right: 0;
   top: 50%;
@@ -235,7 +242,7 @@ body {
   position: absolute;
   width: 15px;
   height: 50px;
-  background: #99E2D0;
+  background: #9356DC;
   left: 60%;
   right: 0;
   top: 50%;
@@ -247,7 +254,7 @@ body {
   position: absolute;
   width: 15px;
   height: 50px;
-  background: #99E2D0;
+  background: #9356DC;
   left: 70%;
   right: 0;
   top: 50%;
@@ -310,6 +317,7 @@ body {
   border-radius: 15px;
   position: relative;
   box-shadow: 0px 3px 13px -10px #000000;
+  z-index: 1;
 }
 .fonctionnement-block__number {
   display: inline-block;
@@ -335,9 +343,47 @@ body {
 .fonctionnement-block__icon-texte > h4 {
   margin: 0 0 0 15px;
 }
+.fonctionnement-block:hover::after {
+  opacity: 1;
+}
+.fonctionnement-block::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0;
+  border: none;
+  border-radius: 15px;
+  background: #e0e0e0;
+  box-shadow: 5px 6px 13px -10px #000000;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
 .fonctionnement-block--final {
   background-color: #f2eafb;
   margin-bottom: 50px;
+}
+.fonctionnement-block--final:hover::after {
+  opacity: 1;
+}
+.fonctionnement-block--final::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0;
+  border: none;
+  border-radius: 15px;
+  background: #e4d5f6;
+  box-shadow: 5px 6px 13px -10px #9356DC;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 .fonctionnement-block__logo--final {
   color: #9356DC;
