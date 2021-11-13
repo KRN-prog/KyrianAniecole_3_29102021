@@ -1,0 +1,26 @@
+Qu'est-ce qu'une variable ?
+Une fonction ?
+Un const ?
+La différence entre const et let ?
+L'utilisation du mot clé new ?
+Une instance de classe ?
+Une API ? Une Promise ?
+Async ?
+Await ?
+Une propriété ?
+Une méthode ?
+Un objet ?
+Qu'est-ce qu'un tableau ?
+Qu'est-ce qu'un dictionnaire ?
+
+
+https://www.malt.fr/
+https://www.codeur.com/
+https://www.freelancer.com/
+https://www.upwork.com/
+https://www.lehibou.com/
+https://www.freelancerepublik.com/
+https://fr.jooble.org/
+https://www.kang.fr/
+https://www.airjob.fr/
+http://5euros.com/

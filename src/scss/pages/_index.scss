@@ -100,7 +100,13 @@
         }
         &__icon-texte{
             display: flex;
-            margin: 5px 0 0 15px;
+            margin: 5px 0 0 5px;
+            @include tablette-resize{
+                margin: 5px 0 0 15px;
+            }
+            @include desktop-resize{
+                margin: 5px 0 0 15px;
+            }
             >h4{
                 margin: 0 0 0 15px;
             }

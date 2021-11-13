@@ -11,6 +11,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-basis: 100%;
+    width: 100%;
     margin-top: -50px;
     background-color: $white;
     border-top-left-radius: 50px;
@@ -41,6 +42,7 @@
 }
 .menu-etape{
     flex-basis: 90%;
+    width: 100%;
     margin: auto;
     @include tablette-resize{
         flex-basis: 70%;
@@ -50,8 +52,11 @@
     }
 }
 .menu-parti{
+    width: 90%;
     text-transform: uppercase;
     margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
     &__texte{
         display: inline-block;
         margin-bottom: 5px;
@@ -63,8 +68,10 @@
     }
 }
 .plat{
+    width: 90%;
     display: flex;
     position: relative;
+    margin: auto;
     margin-bottom: 15px;
     animation: menu-animations .5s ease-in-out;
     @for $i from 3 through 10 {
@@ -132,7 +139,6 @@
     &__prix{
         position: absolute;
         top: 50%;
-        left: 25%;
     }
     &__circle{
         display: inline-block;
